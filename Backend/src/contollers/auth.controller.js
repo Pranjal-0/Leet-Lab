@@ -148,10 +148,14 @@ export const check = async (req,res) => {
     try {
         res.status(200).json({
             success:true,
-            message:"user authenticated successfully"
+            message:"user authenticated successfully",
+            user:req.user
         })
-    } catch (error) {
-        
+    }  catch (error) {
+        console.error("Error creating user:" ,error);
+        res.status(500).json({
+            error:"Error geting user"
+        })
         
     }
 }
