@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import authRoutes from "../src/routes/auth.routes.js"
+import authRoutes from "../src/routes/auth.routes.js";
+import problemRoutes from "../src/routes/problem.routes.js";
 
 dotenv.config();
 console.log("DATABASE_URL:", process.env.DATABASE_URL);
