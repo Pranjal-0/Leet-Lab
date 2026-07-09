@@ -1,5 +1,4 @@
-import{getJudge0LanguageId, submitBatch} from"../libs/judge0.js"
-import { pollBatchResults } from "../libs/judge0.js";
+import{getJudge0LanguageId, submitBatch,pollBatchResults} from"../libs/judge0.js"
 import {db} from"../libs/db.js"
 
 export const createProblem = async (req, res) => {
@@ -65,13 +64,8 @@ export const createProblem = async (req, res) => {
         
     }
 }
-
 export const getAllProblems = async (req, res) => {}
-
 export const getProblemById = async (req, res) => {}
-
 export const updateProblem = async (req, res) => {}
-
 export const deleteProblem = async (req, res) => {}
-
 export const getAllProblemsSolvedByUser = async (req, res) => {}
