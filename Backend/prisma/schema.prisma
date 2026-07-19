@@ -2,47 +2,53 @@ generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
+
 datasource db {
   provider = "postgresql"
 }
+
 enum UserRole {
   ADMIN
   USER
 }
+
 enum Difficulty {
   EASY
   MEDIUM
   HARD
 }
+
 model User {
-  id String @id @default(uuid())
-  name String?
-  email String @unique
-  image String?
-  role UserRole @default(USER)
-  password String
+  id        String   @id @default(uuid())
+  name      String?
+  email     String   @unique
+  image     String?
+  role      UserRole @default(USER)
+  password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  problems Problem[]
+
+  problems  Problem[]
 }
-model Problem{
-  id String @id @default(uuid())
-  title String
-  description String
-  difficulty Difficulty
-  tags String[]
-  userId String
-  exmaples Json
-  constraints String
-  hints String?
-  editorial String?
 
-  testcases Json
-  codeSnippets Json
-  referncesSolution Json
+model Problem {
+  id                String     @id @default(uuid())
+  title             String
+  description       String
+  difficulty        Difficulty
+  tags              String[]
+  userId            String
+  examples          Json       // FIXED TYPO
+  constraints       String
+  hints             String?
+  editorial         String?
+
+  testcases         Json
+  codeSnippets      Json
+  referenceSolutions Json       // FIXED TYPO
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId],references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
